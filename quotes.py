@@ -22,9 +22,5 @@ def main():
     print(r.text)
 
 if __name__ == '__main__':
-    try:
-        main()
-        return 0
-    except:
-        return 1
+    main()
 
