@@ -20,14 +20,14 @@ def main():
     """
 
     # Specification for the request
-    quote = {'method': 'getQuote', 'format': 'text', 'lang':'en'}
+    quote = {'method': 'getQuote', 'format': 'json', 'lang':'en'}
 
     try:
         # Post Request
         r = requests.post("http://api.forismatic.com/api/1.0/", params = quote)
 
         # Open file used for storing last seen quote
-        f = open('quote', 'w')
+        f = open('quote.json', 'w')
 
         # Save newly fetched quote to file 
         f.write(r.text)
