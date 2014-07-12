@@ -6,7 +6,8 @@
 # Licensed under the MIT license.
 ##
 
-import requests
+import requests # support for requesting data
+import json # allows json support
 
 class getQuote():
     """
@@ -40,9 +41,9 @@ class getQuote():
         # Close file
         f.close()
     
-    def readQuoteJSON(self):
+    def readQuoteJSON(self, info = None):
         """
-        Reads the quote form quote.json file 
+        Reads the quote from quote.json file 
         """
         # Open old quotes file for reading
         f = open('quote.json', 'r')
@@ -53,11 +54,18 @@ class getQuote():
         # Close file
         f.close()
 
+        # parse the JSON string
+        quote = self.parseJSON(quote, info)
+
         return quote
 
-    def parseJSON(self, quote):                   
+    def parseJSON(self, quote, info = None):                   
         """
-        Parses the json returned by the forismatic api
+        Parses JSON string
         """
-        # TODO: Actually parse JSON instead of just printing it out
-        print(quote)
+        quote = json.loads(quote)
+
+        if info != None:
+            return quote[info] # return required portion of JSON string
+
+        return quote # return the complete JSON string

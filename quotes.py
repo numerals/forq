@@ -18,9 +18,9 @@ def main():
     try:
         text = quote.requestQuote() # get quote
         quote.saveQuoteJSON(text) # saving
-        quote.parseJSON(text) # parses the json
+        print(quote.parseJSON(text,"quoteText")) # parses the json
     except:
-        print(quote.readQuoteJSON()) # prints the last quote
+        print(quote.readQuoteJSON("quoteText")) # parses and prints the last quote
 
 if __name__ == '__main__':
     main()
