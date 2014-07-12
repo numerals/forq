@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python2
 
 ##
 # Forismatic Conky
@@ -26,14 +26,27 @@ def main():
         # Post Request
         r = requests.post("http://api.forismatic.com/api/1.0/", params = quote)
 
-        # TODO : Save to file if request successful
+        # Open file used for storing last seen quote
+        f = open('quote', 'w')
 
+        # Save newly fetched quote to file 
+        f.write(r.text)
+
+        # Close file
+        f.close()
+        
         # Print Quote
         print(r.text)
+        
     except:
-        # TODO : Read file and return old contents
+        # Open old quotes file for reading
+        f = open('quote', 'r')
 
-        print("Couldn't fetch quote") # To be removed
+        # Read file and return old contents
+        print(f.read())
+
+        # Close file
+        f.close()
 
 if __name__ == '__main__':
     main()
