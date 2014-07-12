@@ -11,15 +11,29 @@
 """
 Generates random quote
 """
+
 import requests
 
 def main():
     """
-    requests a random quote
+    Requests a random quote using forismatic API
     """
+
+    # Specification for the request
     quote = {'method': 'getQuote', 'format': 'text', 'lang':'en'}
-    r = requests.post("http://api.forismatic.com/api/1.0/", params=quote) # post request
-    print(r.text)
+
+    try:
+        # Post Request
+        r = requests.post("http://api.forismatic.com/api/1.0/", params = quote)
+
+        # TODO : Save to file if request successful
+
+        # Print Quote
+        print(r.text)
+    except:
+        # TODO : Read file and return old contents
+
+        print("Couldn't fetch quote") # To be removed
 
 if __name__ == '__main__':
     main()
