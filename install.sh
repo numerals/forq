@@ -24,7 +24,7 @@ usage_forq()
 echo -n 'Install in /usr/local/forq (1) OR ~/.forq (2) [ 1|2 ] -> '
 read ans 
 
-elif [ "$ans" = "2" ]
+if [ "$ans" = "2" ]
 then
     path=$PATH2
 else
