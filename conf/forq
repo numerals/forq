@@ -1,0 +1,59 @@
+#! /usr/bin/sh
+
+NEW_REQUEST=
+QUOTE=
+AUTHOR=
+
+help_forq()
+{
+    echo "Usage: $0 <flag>"
+    echo "Valid flags:"
+    echo "  -n : Request new quote from forismatic"
+    echo "  -q : Print last quote"
+    echo "  -a : Print author of last quote"
+    exit 1
+}
+
+# default value for $FORQ_DIR
+if [ -z "$FORQ_DIR" ]; then
+    FORQ_DIR=/usr/local/forq
+fi
+
+# If no command-line args, display help and exit
+if [ $# -lt 1 ]; then
+    help_forq
+fi
+
+# If more than one command line argument, display help and exit
+if [ $# -gt 2 ]; then
+    help_forq
+fi
+
+# Parse arguments
+while getopts nqa opt
+do
+    case "$opt" in
+        n) NEW_REQUEST=1;;
+        q) QUOTE=1;;
+        a) AUTHOR=1;;
+        \?) help_forq;;
+    esac
+done
+
+if [ ! -z "$NEW_REQUEST" ]; then
+    # Debug
+    echo 'New Request!'
+    python2.7 "$FORQ_DIR/generate.py"
+fi
+
+if [ ! -z "$QUOTE" ]; then
+    # Debug
+    echo 'Quote!'
+    python2.7 "$FORQ_DIR/parse.py" quoteText
+fi
+
+if [ ! -z "$AUTHOR" ]; then
+    # Debug
+    echo 'Author!'
+    python2.7 "$FORQ_DIR/parse.py" quoteAuthor
+fi
