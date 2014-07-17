@@ -17,10 +17,9 @@ def main():
     quote = gq.getQuote()
     try:
         text = quote.requestQuote() # get quote
-        quote.saveQuoteJSON(text) # saving
-        print(quote.parseJSON(text,"quoteText")) # parses the json
+        quote.saveJSON(text) # saving
     except:
-        print(quote.readQuoteJSON("quoteText")) # parses and prints the last quote
+        pass
 
 if __name__ == '__main__':
     main()

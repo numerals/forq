@@ -28,7 +28,7 @@ class getQuote():
         # Return data received
         return r.text
 
-    def saveQuoteJSON(self, quote):
+    def saveJSON(self, quote):
         """
         Takes a string and saves it to the quote.json file
         """
@@ -41,7 +41,7 @@ class getQuote():
         # Close file
         f.close()
     
-    def readQuoteJSON(self, info = None):
+    def readJSON(self, info = None):
         """
         Reads the quote from quote.json file 
         """
@@ -55,11 +55,11 @@ class getQuote():
         f.close()
 
         # parse the JSON string
-        quote = self.parseJSON(quote, info)
+        quote = self._parseJSON(quote, info)
 
         return quote
 
-    def parseJSON(self, quote, info = None):                   
+    def _parseJSON(self, quote, info = None):                   
         """
         Parses JSON string
         """
