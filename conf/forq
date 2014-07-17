@@ -1,5 +1,13 @@
 #! /usr/bin/sh
 
+##
+# Forismatic Conky
+# https://github.com/MnC-69/forq.git
+#
+# Copyright (c) 2014 Sartaj Singh, Sumit Sahrawat
+# Licensed under the MIT license.
+##
+
 NEW_REQUEST=
 QUOTE=
 AUTHOR=
