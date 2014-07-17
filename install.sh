@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /usr/bin/sh
 
 ##
 # Forismatic Conky
@@ -8,7 +8,10 @@
 # Licensed under the MIT license.
 ##
 
-# explains the usage
+PATH1=/usr/local/forq
+PATH2=~/.forq
+
+# Explains the usage
 usage_forq()
 {
     echo "Usage: forq <flag>"
@@ -18,25 +21,25 @@ usage_forq()
     echo "  -a : Print author of last quote"
 }
 
-echo -n 'Install in /usr/local/forq ? [Y|N] -> '
+echo -n 'Install in /usr/local/forq (1) OR ~/.forq (2) [ 1|2 ] -> '
 read ans 
 
-if [ "$ans" = "N" ]
+elif [ "$ans" = "2" ]
 then
-    echo -n 'Enter Path -> '
-    read path # custom path
+    path=$PATH2
 else
-    path=/usr/local/forq/ # default path
+    path=$PATH1
 fi
 
 echo "Installing in $path"
 
 if [ ! -d $path ]
 then
-    mkdir $path # make directory if directory does not exist
+    mkdir $path           # Make directory if directory does not exist
 fi
-cp src/* $path # copy scripts
-cp conf/forq /usr/bin/ # copy the forq conf file
+
+cp src/* $path                  # Copy scripts
+cp conf/forq /usr/bin/          # Copy the forq conf file
 
 echo "Install successful"
 usage_forq
