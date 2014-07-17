@@ -47,13 +47,11 @@ if [ ! -z "$NEW_REQUEST" ]; then
 fi
 
 if [ ! -z "$QUOTE" ]; then
-    # Debug
-    echo 'Quote!'
+    # output quote
     python2.7 "$FORQ_DIR/parse.py" quoteText
 fi
 
 if [ ! -z "$AUTHOR" ]; then
-    # Debug
-    echo 'Author!'
+    # output Author
     python2.7 "$FORQ_DIR/parse.py" quoteAuthor
 fi
