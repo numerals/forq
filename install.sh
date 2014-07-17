@@ -8,38 +8,30 @@
 # Licensed under the MIT license.
 ##
 
-PATH1=/usr/local/forq
-PATH2=~/.forq
+SCRIPT_DIR=$(readlink -f ${0%/*})
+ROOT_ACCESS=1
+USER_UID=$($SCRIPT_DIR/conf/uid.sh)
 
-# Explains the usage
-usage_forq()
-{
-    echo "Usage: forq <flag>"
-    echo "Valid flags:"
-    echo "  -n : Request new quote from forismatic"
-    echo "  -q : Print last quote"
-    echo "  -a : Print author of last quote"
-}
-
-echo -n 'Install in /usr/local/forq (1) OR ~/.forq (2) [ 1|2 ] -> '
-read ans 
-
-if [ "$ans" = "2" ]
+if [ "$USER_UID" = "0" ]
 then
-    path=$PATH2
-else
-    path=$PATH1
+    ROOT_ACCESS=0
 fi
 
-echo "Installing in $path"
+if [ "$ROOT_ACCESS" != "0" ]
+then
+    echo 'Cannot install without root access'
+    exit 1
+fi
+
+path=/usr/local/forq
 
 if [ ! -d $path ]
 then
     mkdir $path           # Make directory if directory does not exist
 fi
 
-cp src/* $path                  # Copy scripts
-cp conf/forq /usr/bin/          # Copy the forq conf file
-
-echo "Install successful"
-usage_forq
+install -m 0755 "$SCRIPT_DIR/src/generate.py" "$path"
+install -m 0644 "$SCRIPT_DIR/src/getQuote.py" "$path"
+install -m 0755 "$SCRIPT_DIR/src/parse.py" "$path"
+install -m 0755 "$SCRIPT_DIR/conf/width.sh" "$path"
+install -m 0755 "$SCRIPT_DIR/conf/forq" "/usr/bin" # Copy the forq conf file
