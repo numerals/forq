@@ -19,6 +19,7 @@ help_forq()
     echo "  -n : Request new quote from forismatic"
     echo "  -q : Print last quote"
     echo "  -a : Print author of last quote"
+    echo "  -h : Displays this help"
     exit 1
 }
 
@@ -38,19 +39,18 @@ if [ $# -gt 2 ]; then
 fi
 
 # Parse arguments
-while getopts nqa opt
+while getopts nqah opt
 do
     case "$opt" in
         n) NEW_REQUEST=1;;
         q) QUOTE=1;;
         a) AUTHOR=1;;
+        h) help_forq;;
         \?) help_forq;;
     esac
 done
 
 if [ ! -z "$NEW_REQUEST" ]; then
-    # Debug
-    echo 'New Request!'
     python2.7 "$FORQ_DIR/generate.py"
 fi
 
