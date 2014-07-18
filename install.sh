@@ -41,7 +41,7 @@ fi
 # Install files
 install -m 0755 "$SCRIPT_DIR/src/generate.py" "$path"
 install -m 0644 "$SCRIPT_DIR/src/getQuote.py" "$path"
-install -m 0644 "$SCRIPT_DIR/src/quotes.json" "$path"
+install -m 0644 "$SCRIPT_DIR/src/quote.json" "$path"
 install -m 0755 "$SCRIPT_DIR/src/parse.py" "$path"
 install -m 0755 "$SCRIPT_DIR/conf/width.sh" "$path"
 install -m 0755 "$SCRIPT_DIR/conf/forq" "/usr/bin" # Copy the forq conf file
