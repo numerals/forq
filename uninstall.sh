@@ -37,9 +37,6 @@ if [ -d "$path" ]
 then
     rm -rf "$path"
     rm -f /usr/bin/forq
-    echo 'Forq uninstalled successfully'
-    echo 'Thank You for using forq'
-    echo 'github.com/MnC-69/forq.git'
 else
     echo 'Forq is not installed yet. Use install.sh to install.'
 fi
