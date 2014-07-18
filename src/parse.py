@@ -16,7 +16,7 @@ def main():
     Requests a random quote using forismatic API
     """
     quote = gq.getQuote()
-    text = quote.readJSON(sys.argv.pop())
+    text = quote.readJSON(sys.argv[1], sys.argv[2])
     print(text) # print the requested
 
 if __name__ == '__main__':

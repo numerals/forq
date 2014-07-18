@@ -51,15 +51,15 @@ do
 done
 
 if [ ! -z "$NEW_REQUEST" ]; then
-    python2.7 "$FORQ_DIR/generate.py"
+    python2.7 "$FORQ_DIR/generate.py" $FORQ_DIR
 fi
 
 if [ ! -z "$QUOTE" ]; then
     # output quote
-    python2.7 "$FORQ_DIR/parse.py" quoteText
+    python2.7 "$FORQ_DIR/parse.py" quoteText $FORQ_DIR
 fi
 
 if [ ! -z "$AUTHOR" ]; then
     # output Author
-    python2.7 "$FORQ_DIR/parse.py" quoteAuthor
+    python2.7 "$FORQ_DIR/parse.py" quoteAuthor $FORQ_DIR
 fi

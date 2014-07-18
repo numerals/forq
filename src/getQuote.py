@@ -8,6 +8,7 @@
 
 import requests # support for requesting data
 import json # allows json support
+import os # for file management
 
 class getQuote():
     """
@@ -28,12 +29,13 @@ class getQuote():
         # Return data received
         return r.text
 
-    def saveJSON(self, quote):
+    def saveJSON(self, quote, directory = None):
         """
         Takes a string and saves it to the quote.json file
         """
+        fname = 'quote.json' # filename
         # Open file used for storing last seen quote
-        f = open('quote.json', 'w')
+        f = open(os.path.join(directory, fname), 'w')
 
         # Save newly fetched quote to file 
         f.write(quote)
@@ -41,12 +43,13 @@ class getQuote():
         # Close file
         f.close()
     
-    def readJSON(self, info = None):
+    def readJSON(self, info = None, directory = None):
         """
         Reads the quote from quote.json file 
         """
+        fname = 'quote.json' # filename
         # Open old quotes file for reading
-        f = open('quote.json', 'r')
+        f = open(os.path.join(directory, fname), 'r')
 
         # Read file and return old contents
         quote = f.read()

@@ -9,6 +9,7 @@
 ##
 
 import getQuote as gq # handles the api
+import sys
 
 def main():
     """
@@ -17,7 +18,7 @@ def main():
     quote = gq.getQuote()
     try:
         text = quote.requestQuote() # get quote
-        quote.saveJSON(text) # saving
+        quote.saveJSON(text, sys.argv.pop()) # saving
     except:
         pass
 
