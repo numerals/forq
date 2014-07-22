@@ -1,8 +1,8 @@
 # Align to top-left
-alignment bottom_left
+alignment bottom
 
 # Append other files
-append_file ~/Code/forq/text/helloworld
+# append_file
 
 # Fork to background
 background no
@@ -75,10 +75,10 @@ extra_newline no
 # format_human_readable
 
 # Gap, in pixels, between right or left border of screen
-gap_x 50
+# gap_x
 
 # Gap, in pixels, between top or bottom of the screen
-gap_y 50
+# gap_y
 
 # Hostname to connect to for hddtemp objects. Defaults to 127.0.0.1
 # hddtemp_host
@@ -114,7 +114,7 @@ gap_y 50
 # maximum_width
 
 # Minimum size of window
-minimum_size 5 5
+minimum_size 1920 150
 
 # Host of MPD server
 # mpd_host
@@ -129,22 +129,22 @@ minimum_size 5 5
 # music_player_interval
 
 # The no. of samples to average for net data
-net_avg_samples 2
+# net_avg_samples
 
 # Subtract (file system) buffers from used memory?
-no_buffers yes
+# no_buffers
 
 # The display that the nvidia variable will use (defaults to the value of the display variable)
 # nvidia_variable
 
 # Print text to stdout
-out_to_console no
+# out_to_console
 
 # Print text to console, but use ncurses (will be used to provide new features)
-out_to_ncurses no
+# out_to_ncurses
 
 # Print text to stderr
-out_to_stderr no
+# out_to_stderr
 
 # Output to X (Default value is yes)
 # out_to_x
@@ -166,7 +166,7 @@ own_window_class conky
 # own_window_color 000000
 
 # If own_window is yes, use window manager hints to affect the way conky displays
-own_window_hints undecorated,below,skip_taskbar,skip_pager
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 
 # Manually set the window name. Defaults to '<hostname> - conky'
 own_window_title conky
@@ -175,10 +175,10 @@ own_window_title conky
 own_window_argb_visual yes
 
 # When ARGB visuals are enabled, use this to modify the alpha value used. Valid range is 0-255, where 0 - 0% and 255 - 100% opacity
-own_window_argb_value 255
+own_window_argb_value 128
 
 # Boolean, set transparency? If ARGB visual is enabled, sets background opacity to 0%
-own_window_transparent yes
+own_window_transparent no
 
 # If own_window is yes, you may specify type normal, desktop, dock, panel or override (default: normal).
 own_window_type normal
@@ -193,13 +193,13 @@ own_window_type normal
 # short_units
 
 # Shows the time range covered by the graph
-show_graph_range no
+# show_graph_range
 
 # Shows the maximum value in scaled graphs
-show_graph_scale no
+# show_graph_scale
 
 # Border stippling (dashing) in pixels
-stippled_borders 0
+# stippled_borders
 
 # Desired output unit of all objects displaying a temperature. Parameters are either 'farenheit' or 'celsius'. The default unit is degree Celsius
 # temperature_unit
@@ -246,5 +246,5 @@ xftalpha 1
 xftfont Raleway:pixelsize=9
 
 TEXT
-${font Helvetica Neue:weight=Thin:size=25}${execi 5 python2 ~/Code/forq/quotes.py}
-
+${font Helvetica Neue:weight=Thin:size=25}   ${execi 15 forq -q}
+${font Helvetica Neue:weight=Thin:size=25}  ~ ${execi 15 forq -a}   
