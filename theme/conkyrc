@@ -246,5 +246,5 @@ xftalpha 1
 xftfont Raleway:pixelsize=9
 
 TEXT
-${font Helvetica Neue:weight=Thin:size=25}   ${execi 15 forq -q}
+${font Helvetica Neue:weight=Thin:size=25}   ${execi 15 forq -nq}
 ${font Helvetica Neue:weight=Thin:size=25}  ~ ${execi 15 forq -a}   

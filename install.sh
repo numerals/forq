@@ -45,3 +45,6 @@ install -m 0646 "$SCRIPT_DIR/src/quote.json" "$path"
 install -m 0755 "$SCRIPT_DIR/src/parse.py" "$path"
 install -m 0755 "$SCRIPT_DIR/conf/width.sh" "$path"
 install -m 0755 "$SCRIPT_DIR/conf/forq" "/usr/bin" # Copy the forq conf file
+
+# Print instructions
+echo 'Also run the install_theme.sh script'
