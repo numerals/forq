@@ -26,6 +26,10 @@ class getQuote():
         # Post Request
         r = requests.post("http://api.forismatic.com/api/1.0/", params = quote)
 
+        # Check if request recieved valid JSON
+        if r.text[0] != '{':
+            raise Exception('Invalid JSON received')
+
         # Return data received
         return r.text
 
