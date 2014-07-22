@@ -62,11 +62,11 @@ class getQuote():
         f.close()
 
         # parse the JSON string
-        quote = self._parseJSON(quote, info)
+        quote = self.parseJSON(quote, info)
 
         return quote
 
-    def _parseJSON(self, quote, info = None):                   
+    def parseJSON(self, quote, info = None):                   
         """
         Parses JSON string
         """

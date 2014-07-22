@@ -18,6 +18,7 @@ def main():
     quote = gq.getQuote()
     try:
         text = quote.requestQuote() # get quote
+        quote.parseJSON(text) # check if parsable
         quote.saveJSON(text, sys.argv.pop()) # saving
     except:
         pass
