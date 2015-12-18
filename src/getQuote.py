@@ -1,6 +1,6 @@
 ##
 # Forismatic Conky
-# https://github.com/MnC-69/forq.git
+# https://github.com/numerals/forq.git
 #
 # Copyright (c) 2014 Sartaj Singh, Sumit Sahrawat
 # Licensed under the MIT license.
@@ -19,7 +19,7 @@ class getQuote():
         Requests a random quote from forismatic.
         Returns a JSON string
         """
-        
+
         # Specification for the request
         quote = {'method': 'getQuote', 'format': 'json', 'lang':'en'}
 
@@ -41,15 +41,15 @@ class getQuote():
         # Open file used for storing last seen quote
         f = open(os.path.join(directory, fname), 'w')
 
-        # Save newly fetched quote to file 
+        # Save newly fetched quote to file
         f.write(quote)
 
         # Close file
         f.close()
-    
+
     def readJSON(self, info = None, directory = None):
         """
-        Reads the quote from quote.json file 
+        Reads the quote from quote.json file
         """
         fname = 'quote.json' # filename
         # Open old quotes file for reading
@@ -66,7 +66,7 @@ class getQuote():
 
         return quote
 
-    def parseJSON(self, quote, info = None):                   
+    def parseJSON(self, quote, info = None):
         """
         Parses JSON string
         """
