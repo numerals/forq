@@ -2,7 +2,7 @@
 
 ##
 # Forismatic Conky
-# https://github.com/MnC-69/forq.git
+# https://github.com/numerals/forq.git
 #
 # Copyright (c) 2014 Sartaj Singh, Sumit Sahrawat
 # Licensed under the MIT license.
